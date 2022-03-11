@@ -32,17 +32,17 @@ public class DownloadController {
         Hospital[] response = rt.getForObject("http://3.38.254.72:5000/api/hospital?sidoCdNm=부산&sgguCdNm=부산사하구",
                 Hospital[].class);
 
-        List<Hospital> hosList = Arrays.asList(response);
+        List<Hospital> hospList = Arrays.asList(response);
 
         // System.out.println("============" + hosList.get(0));
 
         // DB에 saveAll() 호출
-        hospitalRepository.saveAll(hosList);
+        hospitalRepository.saveAll(hospList);
 
         // 1. HospitalRepository의 findAll() 호출
         // 2. model에 담기
         // model.addAttribute("hospitals", hospitalRepository.findAll());
-        model.addAttribute("hospitals", hosList);
+        model.addAttribute("hospitals", hospList);
 
         // 3. mustache 파일에 뿌리기
 

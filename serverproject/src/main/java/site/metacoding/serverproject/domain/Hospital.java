@@ -3,23 +3,20 @@ package site.metacoding.serverproject.domain;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.Id;
-
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@EntityListeners(AuditingEntityListener.class)
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 @Entity
-@EntityListeners(AuditingEntityListener.class)
+@Data
 public class Hospital {
 
     @Id
-    private Integer id;
-
+    private Integer id; // primarykey
     private String addr;// 의료기관 주소
     private Integer mgtStaDd;// 운영시작일자
     private String pcrPsblYn;// 구분코드(PCR 가능여부)
@@ -33,5 +30,4 @@ public class Hospital {
     private String yposWgs84;// 세계지구 y좌표
     private String xpos; // x좌표
     private String ypos; // y좌표
-
 }
